@@ -19,7 +19,7 @@ cd /mnt/software
 echo "\nProgreso (==                                     - 5%)\n"
 echo "\nInstalando librerías...\n"
 sudo apt-get update
-sudo apt-get install python python-dev python-pip-whl python3 python3-pip build-essential docker.io docker-compose docker-registry testresources openjdk-16-jre -y
+sudo apt-get install python python-dev python-pip-whl python3 python3-pip build-essential docker.io docker-compose docker-registry testresources default-jdk -y
 
 
 # 1.CREEPY

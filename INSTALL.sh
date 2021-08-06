@@ -26,8 +26,9 @@ sudo apt-get install python python-dev python-pip-whl python3 python3-pip build-
 
 echo "\nProgreso (====                                   - 10%)\n"
 echo "\nInstalando Creepy...\n"
-sudo apt-get install python-qt4 -y && sudo pip install pytz python-qt flickrapi python-instagram yapsy tweepy google-api-python-client python-dateutil configobj dominate
-# python CreepyMain.py
+sudo apt-get install -y && sudo pip install pytz python-qt flickrapi python-instagram yapsy tweepy google-api-python-client python-dateutil configobj dominate
+sudo git clone https://github.com/ilektrojohn/creepy/tree/master/creepy
+# python CreepyMain.py HACE FALTA CONFIGURARLO PARA QUE CORRA CON PYTHON3
 
 
 # 2. DATASPLOIT

@@ -63,6 +63,10 @@ sudo apt-get install wine winetricks mssql-server -y
 sudo winetricks dotnet461 gdiplus fontfix
 sudo git clone https://github.com/c-fsj/orion/tree/main/tools/foca
 sudo /opt/mssql/bin/mssql-conf setup
+sudo cp /mnt/software/foca/bin/foca /usr/local/bin/foca
+sudo chmod 755 /usr/local/bin/foca
+sudo chown root:root /usr/local/bin/foca
+sudo export PATH=$PATH:/usr/local/bin/foca
 # wine /mnt/software/foca/FOCA.exe
 
 
@@ -75,6 +79,11 @@ cd Infoga
 sudo pip3 install setuptools
 sudo python setup.py install
 cd ..
+echo '#!/bin/bash' > /mnt/software/Infoga/infoga && echo 'python3 /mnt/software/Infoga/infoga.py' >> /mnt/software/Infoga/infoga
+sudo cp /mnt/software/Infoga/infoga /usr/local/bin/infoga
+sudo chmod 755 /usr/local/bin/infoga
+sudo chown root:root /usr/local/bin/infoga
+export PATH=$PATH:/usr/local/bin/infoga
 # python infoga.py
 
 
@@ -108,7 +117,11 @@ sudo git clone https://github.com/opsdisk/metagoofil
 cd metagoofil
 sudo pip install -r requirements.txt
 cd ..
-
+echo '#!/bin/bash' > /mnt/software/metagoofil/metagoofil && echo 'python3 /mnt/software/metagoofil/metagoofil.py' >> /mnt/software/metagoofil/metagoofil
+sudo cp /mnt/software/metagoofil/metagoofil /usr/local/bin/metagoofil
+sudo chmod 755 /usr/local/bin/metagoofil
+sudo chown root:root /usr/local/bin/metagoofil
+export PATH=$PATH:/usr/local/bin/metagoofil
 
 # 10. OSINT-SPY
 
@@ -118,6 +131,11 @@ sudo git clone https://github.com/SharadKumar97/OSINT-SPY
 cd OSINT-SPY
 sudo pip install -r requirements.txt
 cd ..
+echo '#!/bin/bash' > /mnt/software/OSINT-SPY/osint-spy && echo 'python3 /mnt/software/OSINT-SPY/osint-spy.py' >> /mnt/software/OSINT-SPY/osint-spy
+sudo cp /mnt/software/OSINT-SPY/osint-spy /usr/local/bin/osint-spy
+sudo chmod 755 /usr/local/bin/osint-spy
+sudo chown root:root /usr/local/bin/osint-spy
+export PATH=$PATH:/usr/local/bin/osint-spy
 
 # 11. OSRFramework
 

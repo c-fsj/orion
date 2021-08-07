@@ -57,9 +57,13 @@ cd ..
 
 echo "\nProgreso (============                           - 30%)\n"
 echo "\nInstalando FOCA...\n"
-sudo apt-get install wine winetricks -y
-sudo winetricks dotnet20 gdiplus fontfix
-# wine 'FOCA Free.exe'
+sudo apt-get install wine winetricks mssql-server -y
+sudo winetricks dotnet461 gdiplus fontfix
+sudo git clone https://github.com/c-fsj/orion/tree/main/tools/foca
+sudo /opt/mssql/bin/sqlservr-setup
+sudo systemctl start mssql-server
+sudo systemctl enable mssql-server
+# wine /mnt/software/foca/FOCA.exe
 
 
 # 5. Infoga

@@ -155,6 +155,11 @@ cd db
 sudo git clone https://github.com/c-fsj/orion/tree/main/tools/reconspider/ip2location-downloader-linux
 perl ip2location-downloader-linux/download.pl
 cd ..\..
+echo '#!/bin/bash' > /mnt/software/reconspider/reconspider && echo 'python3 /mnt/software/reconspider/reconspider.py' >> /mnt/software/reconspider/reconspider
+sudo cp /mnt/software/reconspider/reconspider /usr/local/bin/reconspider
+sudo chmod 755 /usr/local/bin/reconspider
+sudo chown root:root /usr/local/bin/reconspider
+export PATH=$PATH:/usr/local/bin/reconspider
 
 # 13. Recon-ng
 
@@ -171,6 +176,11 @@ sudo git clone https://github.com/sherlock-project/sherlock
 cd sherlock
 sudo python3 -m pip install -r requirements.txt
 cd ..
+echo '#!/bin/bash' > /mnt/software/sherlock/sherlock/sherlock && echo 'python3 /mnt/software/sherlock/sherlock/sherlock.py' >> /mnt/software/sherlock/sherlock/sherlock
+sudo cp /mnt/software/sherlock/sherlock/sherlock /usr/local/bin/sherlock
+sudo chmod 755 /usr/local/bin/sherlock
+sudo chown root:root /usr/local/bin/sherlock
+export PATH=$PATH:/usr/local/bin/sherlock
 # python3 sherlock
 
 
@@ -182,6 +192,11 @@ sudo git clone https://github.com/smicallef/spiderfoot
 cd spiderfoot
 sudo pip3 install -r requirements.txt
 cd ..
+echo '#!/bin/bash' > /mnt/software/spiderfoot/spiderfoot/spiderfoot && echo 'python3 /mnt/software/spiderfoot/sf.py' >> /mnt/software/spiderfoot/spiderfoot/spiderfoot
+sudo cp /mnt/software/spiderfoot/spiderfoot/spiderfoot /usr/local/bin/spiderfoot
+sudo chmod 755 /usr/local/bin/spiderfoot
+sudo chown root:root /usr/local/bin/spiderfoot
+export PATH=$PATH:/usr/local/bin/spiderfoot
 # python3 ./sf.py -l 127.0.0.1:5001
 
 
@@ -189,8 +204,16 @@ cd ..
 
 echo "\nProgreso (====================================   - 90%)\n"
 echo "\nInstalando SpyScrap...\n"
+sudo git clone https://github.com/RuthGnz/SpyScrap
+cd SpyScrap
 sudo docker build -t spyscrap .
-# docker run -ti -v /PATH/TO/SpyScrap/src/data:/spyscrap/data spyscrap  [options]
+cd ..
+echo '#!/bin/bash' > /mnt/software/SpyScrap/spyscrap && echo 'docker run -ti -v /src/data:/spyscrap/data spyscrap' >> /mnt/software/SpyScrap/spyscrap
+sudo cp /mnt/software/SpyScrap/spyscrap /usr/local/bin/spyscrap
+sudo chmod 755 /usr/local/bin/spyscrap
+sudo chown root:root /usr/local/bin/spyscrap
+export PATH=$PATH:/usr/local/bin/spyscrap
+# docker run -ti -v /src/data:/spyscrap/data spyscrap  [options]
 
 # 17. TheHarvester
 

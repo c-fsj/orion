@@ -27,7 +27,7 @@ sudo apt-get install python python-dev python-pip-whl python3 python3-pip build-
 echo "\nProgreso (======                                 - 15%)\n"
 echo "\nInstalando DataSploit...\n"
 sudo git clone https://github.com/Datasploit/datasploit
-sudo git clone https://github.com/c-fsj/orion/blob/main/tools/datasploit/requirements.txt
+sudo git clone https://github.com/c-fsj/orion/tree/main/tools/datasploit/requirements.txt
 sudo chmod 744 requirements.txt
 sudo chown root:root requirements.txt
 sudo rm /mnt/software/datasploit/requirements.txt
@@ -39,7 +39,7 @@ sudo cp -R /usr/local/lib/python3.8/dist-packages/six* /usr/local/lib/python2.7/
 sudo cp -R /usr/local/lib/python3.8/dist-packages/netaddr* /usr/local/lib/python2.7/dist-packages/
 sudo mv config_sample.py config.py
 cd ..
-sudo git clone https://github.com/c-fsj/orion/blob/main/tools/datasploit/datasploit.py
+sudo git clone https://github.com/c-fsj/orion/tree/main/tools/datasploit/datasploit.py
 mv datasploit.py /mnt/software/datasploit/datasploit.py
 sudo chown orion:orion /mnt/software/datasploit
 echo '#!/bin/bash' > /mnt/software/datasploit/datasploit && echo 'python /mnt/software/datasploit/datasploit.py' >> /mnt/software/datasploit/datasploit
@@ -217,7 +217,7 @@ sudo cp /mnt/software/spiderfoot/spiderfoot/spiderfoot /usr/local/bin/spiderfoot
 sudo chmod 755 /usr/local/bin/spiderfoot
 sudo chown root:root /usr/local/bin/spiderfoot
 export PATH=$PATH:/usr/local/bin/spiderfoot
-sudo git clone https://github.com/c-fsj/orion/blob/main/tools/spiderfoot/sf.py
+sudo git clone https://github.com/c-fsj/orion/tree/main/tools/spiderfoot/sf.py
 sudo rm /mnt/software/spiderfoot/sf.py
 sudo mv sf.py /mnt/software/spiderfoot/sf.py
 sudo chmod 755 /mnt/software/spiderfoot/sf.py
@@ -253,7 +253,7 @@ sudo cp /mnt/software/theHarvester/theharvester /usr/local/bin/theharvester
 sudo chmod 755 /usr/local/bin/theharvester
 sudo chown root:root /usr/local/bin/theharvester
 export PATH=$PATH:/usr/local/bin/theharvester
-sudo git clone https://github.com/c-fsj/orion/blob/main/tools/theHarvester/lib/core.py
+sudo git clone https://github.com/c-fsj/orion/tree/main/tools/theHarvester/lib/core.py
 sudo rm /mnt/software/theHarvester/theHarvester/lib/core.py
 sudo mv core.py /mnt/software/theHarvester/theHarvester/lib/core.py
 sudo chmod 744 /mnt/software/theHarvester/theHarvester/lib/core.py

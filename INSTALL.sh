@@ -20,14 +20,14 @@ cd /mnt/software
 echo "\nProgreso (====                                   - 10%)\n"
 echo "\nInstalando librerías...\n"
 sudo apt-get update
-sudo apt-get install python python-dev python-pip-whl python3 python3-pip build-essential docker.io docker-compose docker-registry testresources default-jdk -y
+sudo apt-get install python python-dev python-pip-whl python3 python3-pip build-essential docker.io docker-compose docker-registry testresources default-jdk git -y
 
 # 1. Datasploit
 
 echo "\nProgreso (======                                 - 15%)\n"
 echo "\nInstalando DataSploit...\n"
-git clone https://github.com/Datasploit/datasploit
-git clone https://github.com/c-fsj/orion/tree/main/tools/datasploit/requirements.txt
+sudo git clone https://github.com/Datasploit/datasploit
+sudo git clone https://github.com/c-fsj/orion/tree/main/tools/datasploit/requirements.txt
 sudo chmod 744 requirements.txt
 sudo chown root:root requirements.txt
 sudo rm /mnt/software/datasploit/requirements.txt
@@ -39,7 +39,7 @@ sudo cp -R /usr/local/lib/python3.8/dist-packages/six* /usr/local/lib/python2.7/
 sudo cp -R /usr/local/lib/python3.8/dist-packages/netaddr* /usr/local/lib/python2.7/dist-packages/
 sudo mv config_sample.py config.py
 cd ..
-git clone https://github.com/c-fsj/orion/tree/main/tools/datasploit/datasploit.py
+sudo git clone https://github.com/c-fsj/orion/tree/main/tools/datasploit/datasploit.py
 mv datasploit.py /mnt/software/datasploit/datasploit.py
 sudo chown orion:orion /mnt/software/datasploit
 echo '#!/bin/bash' > /mnt/software/datasploit/datasploit && echo 'python /mnt/software/datasploit/datasploit.py' >> /mnt/software/datasploit/datasploit
@@ -78,7 +78,7 @@ wget -qO- https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 sudo add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/20.04/mssql-server-2019.list)"
 sudo apt-get install wine winetricks mssql-server -y
 winetricks dotnet461 gdiplus fontfix
-git clone https://github.com/c-fsj/orion/tree/main/tools/foca
+sudo git clone https://github.com/c-fsj/orion/tree/main/tools/foca
 sudo /opt/mssql/bin/mssql-conf setup
 sudo cp /mnt/software/foca/bin/foca /usr/local/bin/foca
 sudo chmod 755 /usr/local/bin/foca
@@ -90,7 +90,7 @@ sudo export PATH=$PATH:/usr/local/bin/foca
 
 echo "\nProgreso (==============                         - 35%)\n"
 echo "\nInstalando Infoga...\n"
-git clone https://github.com/m4ll0k/Infoga
+sudo git clone https://github.com/m4ll0k/Infoga
 cd Infoga
 sudo pip3 install setuptools
 sudo python setup.py install
@@ -129,7 +129,7 @@ sudo pip3 install maryam
 
 echo "\nProgreso (======================                 - 55%)\n"
 echo "\nInstalando Metagoofil...\n"
-git clone https://github.com/opsdisk/metagoofil
+sudo git clone https://github.com/opsdisk/metagoofil
 cd metagoofil
 sudo pip install -r requirements.txt
 cd ..
@@ -144,7 +144,7 @@ export PATH=$PATH:/usr/local/bin/metagoofil
 
 echo "\nProgreso (========================               - 60%)\n"
 echo "\nInstalando OSINT-SPY...\n"
-git clone https://github.com/SharadKumar97/OSINT-SPY
+sudo git clone https://github.com/SharadKumar97/OSINT-SPY
 cd OSINT-SPY
 sudo pip install -r requirements.txt
 cd ..
@@ -166,12 +166,12 @@ sudo pip3 install osrframework
 
 echo "\nProgreso (============================           - 70%)\n"
 echo "\nInstalando ReconSpider...\n"
-git clone https://github.com/bhavsec/reconspider
+sudo git clone https://github.com/bhavsec/reconspider
 cd reconspider
 sudo python3 setup.py install
 sudo mkdir db
 cd db
-git clone https://github.com/c-fsj/orion/tree/main/tools/reconspider/ip2location-downloader-linux
+sudo git clone https://github.com/c-fsj/orion/tree/main/tools/reconspider/ip2location-downloader-linux
 perl ip2location-downloader-linux/download.pl
 cd ..\..
 echo '#!/bin/bash' > /mnt/software/reconspider/reconspider && echo 'python3 /mnt/software/reconspider/reconspider.py' >> /mnt/software/reconspider/reconspider
@@ -192,7 +192,7 @@ sudo apt-get install recon-ng -y
 
 echo "\nProgreso (================================      - 80%)\n"
 echo "\nInstalando Sherlock...\n"
-git clone https://github.com/sherlock-project/sherlock
+sudo git clone https://github.com/sherlock-project/sherlock
 cd sherlock
 sudo python3 -m pip install -r requirements.txt
 cd ..
@@ -208,7 +208,7 @@ export PATH=$PATH:/usr/local/bin/sherlock
 
 echo "\nProgreso (==================================     - 85%)\n"
 echo "\nInstalando Spiderfoot...\n"
-git clone https://github.com/smicallef/spiderfoot
+sudo git clone https://github.com/smicallef/spiderfoot
 cd spiderfoot
 sudo pip3 install -r requirements.txt
 cd ..
@@ -217,7 +217,7 @@ sudo cp /mnt/software/spiderfoot/spiderfoot/spiderfoot /usr/local/bin/spiderfoot
 sudo chmod 755 /usr/local/bin/spiderfoot
 sudo chown root:root /usr/local/bin/spiderfoot
 export PATH=$PATH:/usr/local/bin/spiderfoot
-git clone https://github.com/c-fsj/orion/tree/main/tools/spiderfoot/sf.py
+sudo git clone https://github.com/c-fsj/orion/tree/main/tools/spiderfoot/sf.py
 sudo rm /mnt/software/spiderfoot/sf.py
 sudo mv sf.py /mnt/software/spiderfoot/sf.py
 sudo chmod 755 /mnt/software/spiderfoot/sf.py
@@ -229,7 +229,7 @@ sudo chown root:root /mnt/software/spiderfoot/sf.py
 
 echo "\nProgreso (====================================   - 90%)\n"
 echo "\nInstalando SpyScrap...\n"
-git clone https://github.com/RuthGnz/SpyScrap
+sudo git clone https://github.com/RuthGnz/SpyScrap
 cd SpyScrap
 sudo docker build -t spyscrap .
 cd ..
@@ -244,7 +244,7 @@ export PATH=$PATH:/usr/local/bin/spyscrap
 
 echo "\nProgreso (====================================== - 95%)\n"
 echo "\nInstalando TheHarvester...\n"
-git clone https://github.com/laramies/theHarvester
+sudo git clone https://github.com/laramies/theHarvester
 cd theHarvester
 sudo python3 -m pip install -r requirements/base.txt
 cd ..
@@ -253,7 +253,7 @@ sudo cp /mnt/software/theHarvester/theharvester /usr/local/bin/theharvester
 sudo chmod 755 /usr/local/bin/theharvester
 sudo chown root:root /usr/local/bin/theharvester
 export PATH=$PATH:/usr/local/bin/theharvester
-git clone https://github.com/c-fsj/orion/tree/main/tools/theHarvester/lib/core.py
+sudo git clone https://github.com/c-fsj/orion/tree/main/tools/theHarvester/lib/core.py
 sudo rm /mnt/software/theHarvester/theHarvester/lib/core.py
 sudo mv core.py /mnt/software/theHarvester/theHarvester/lib/core.py
 sudo chmod 744 /mnt/software/theHarvester/theHarvester/lib/core.py

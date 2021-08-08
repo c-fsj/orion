@@ -197,6 +197,11 @@ sudo cp /mnt/software/spiderfoot/spiderfoot/spiderfoot /usr/local/bin/spiderfoot
 sudo chmod 755 /usr/local/bin/spiderfoot
 sudo chown root:root /usr/local/bin/spiderfoot
 export PATH=$PATH:/usr/local/bin/spiderfoot
+sudo git clone https://github.com/c-fsj/orion/blob/main/tools/spiderfoot/sf.py
+sudo rm /mnt/software/spiderfoot/sf.py
+sudo mv sf.py /mnt/software/spiderfoot/sf.py
+sudo chmod 755 /mnt/software/spiderfoot/sf.py
+sudo chown root:root /mnt/software/spiderfoot/sf.py
 # python3 ./sf.py -l 127.0.0.1:5001
 
 
@@ -208,7 +213,7 @@ sudo git clone https://github.com/RuthGnz/SpyScrap
 cd SpyScrap
 sudo docker build -t spyscrap .
 cd ..
-echo '#!/bin/bash' > /mnt/software/SpyScrap/spyscrap && echo 'docker run -ti -v /src/data:/spyscrap/data spyscrap' >> /mnt/software/SpyScrap/spyscrap
+echo '#!/bin/bash' > /mnt/software/SpyScrap/spyscrap && echo 'sudo docker run -ti -v /src/data:/spyscrap/data spyscrap' >> /mnt/software/SpyScrap/spyscrap
 sudo cp /mnt/software/SpyScrap/spyscrap /usr/local/bin/spyscrap
 sudo chmod 755 /usr/local/bin/spyscrap
 sudo chown root:root /usr/local/bin/spyscrap
@@ -228,6 +233,11 @@ sudo cp /mnt/software/theHarvester/theharvester /usr/local/bin/theharvester
 sudo chmod 755 /usr/local/bin/theharvester
 sudo chown root:root /usr/local/bin/theharvester
 export PATH=$PATH:/usr/local/bin/theharvester
+sudo git clone https://github.com/c-fsj/orion/blob/main/tools/theHarvester/lib/core.py
+sudo rm /mnt/software/theHarvester/theHarvester/lib/core.py
+sudo mv core.py /mnt/software/theHarvester/theHarvester/lib/core.py
+sudo chmod 744 /mnt/software/theHarvester/theHarvester/lib/core.py
+sudo chown root:root /mnt/software/theHarvester/theHarvester/lib/core.py
 # python3 theHarvester.py -h
 
 

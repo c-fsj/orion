@@ -223,6 +223,11 @@ sudo git clone https://github.com/laramies/theHarvester
 cd theHarvester
 sudo python3 -m pip install -r requirements/base.txt
 cd ..
+echo '#!/bin/bash' > /mnt/software/theHarvester/theharvester && echo 'python3 /mnt/software/theHarvester/theHarvester.py' >> /mnt/software/theHarvester/theharvester
+sudo cp /mnt/software/theHarvester/theharvester /usr/local/bin/theharvester
+sudo chmod 755 /usr/local/bin/theharvester
+sudo chown root:root /usr/local/bin/theharvester
+export PATH=$PATH:/usr/local/bin/theharvester
 # python3 theHarvester.py -h
 
 

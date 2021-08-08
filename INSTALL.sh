@@ -60,7 +60,7 @@ echo "\nInstalando FOCA...\n"
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 sudo add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/20.04/mssql-server-2019.list)"
 sudo apt-get install wine winetricks mssql-server -y
-sudo winetricks dotnet461 gdiplus fontfix
+winetricks dotnet461 gdiplus fontfix
 sudo git clone https://github.com/c-fsj/orion/tree/main/tools/foca
 sudo /opt/mssql/bin/mssql-conf setup
 sudo cp /mnt/software/foca/bin/foca /usr/local/bin/foca

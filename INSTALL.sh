@@ -22,16 +22,31 @@ echo "\nInstalando librerías...\n"
 sudo apt-get update
 sudo apt-get install python python-dev python-pip-whl python3 python3-pip build-essential docker.io docker-compose docker-registry testresources default-jdk -y
 
-# 1. DATASPLOIT
+# 1. Datasploit
 
 echo "\nProgreso (======                                 - 15%)\n"
 echo "\nInstalando DataSploit...\n"
 sudo git clone https://github.com/Datasploit/datasploit
+sudo git clone https://github.com/c-fsj/orion/blob/main/tools/datasploit/requirements.txt
+sudo chmod 744 requirements.txt
+sudo chown root:root requirements.txt
+sudo rm /mnt/software/datasploit/requirements.txt
+sudo mv requirements.txt /mnt/software/datasploit/requirements.txt
 cd datasploit
 sudo pip install -r requirements.txt
+sudo cp -R /usr/local/lib/python3.8/dist-packages/tld* /usr/local/lib/python2.7/dist-packages/
+sudo cp -R /usr/local/lib/python3.8/dist-packages/six* /usr/local/lib/python2.7/dist-packages/
+sudo cp -R /usr/local/lib/python3.8/dist-packages/netaddr* /usr/local/lib/python2.7/dist-packages/
 sudo mv config_sample.py config.py
 cd ..
-# python datasploit.py
+sudo git clone https://github.com/c-fsj/orion/blob/main/tools/datasploit/datasploit.py
+mv datasploit.py /mnt/software/datasploit/datasploit.py
+sudo chown orion:orion /mnt/software/datasploit
+echo '#!/bin/bash' > /mnt/software/datasploit/datasploit && echo 'python /mnt/software/datasploit/datasploit.py' >> /mnt/software/datasploit/datasploit
+sudo cp /mnt/software/datasploit/datasploit /usr/local/bin/datasploit
+sudo chmod 755 /usr/local/bin/datasploit
+sudo chown root:root /usr/local/bin/datasploit
+export PATH=$PATH:/usr/local/bin/datasploit
 
 
 # 2. DMitry
@@ -39,6 +54,7 @@ cd ..
 echo "\nProgreso (========                               - 20%)\n"
 echo "\nInstalando DMitry...\n"
 sudo apt-get install dmitry -y
+
 
 # 3. ExifTool
 
@@ -52,6 +68,7 @@ sudo perl Makefile.PL
 sudo make test
 sudo make install
 cd ..
+
 
 # 4. FOCA
 
@@ -67,7 +84,6 @@ sudo cp /mnt/software/foca/bin/foca /usr/local/bin/foca
 sudo chmod 755 /usr/local/bin/foca
 sudo chown root:root /usr/local/bin/foca
 sudo export PATH=$PATH:/usr/local/bin/foca
-# wine /mnt/software/foca/FOCA.exe
 
 
 # 5. Infoga
@@ -123,6 +139,7 @@ sudo chmod 755 /usr/local/bin/metagoofil
 sudo chown root:root /usr/local/bin/metagoofil
 export PATH=$PATH:/usr/local/bin/metagoofil
 
+
 # 10. OSINT-SPY
 
 echo "\nProgreso (========================               - 60%)\n"
@@ -137,11 +154,13 @@ sudo chmod 755 /usr/local/bin/osint-spy
 sudo chown root:root /usr/local/bin/osint-spy
 export PATH=$PATH:/usr/local/bin/osint-spy
 
+
 # 11. OSRFramework
 
 echo "\nProgreso (==========================             - 65%)\n"
 echo "\nInstalando OSRFramework...\n"
 sudo pip3 install osrframework
+
 
 # 12. ReconSpider
 
@@ -160,6 +179,7 @@ sudo cp /mnt/software/reconspider/reconspider /usr/local/bin/reconspider
 sudo chmod 755 /usr/local/bin/reconspider
 sudo chown root:root /usr/local/bin/reconspider
 export PATH=$PATH:/usr/local/bin/reconspider
+
 
 # 13. Recon-ng
 
@@ -218,7 +238,7 @@ sudo cp /mnt/software/SpyScrap/spyscrap /usr/local/bin/spyscrap
 sudo chmod 755 /usr/local/bin/spyscrap
 sudo chown root:root /usr/local/bin/spyscrap
 export PATH=$PATH:/usr/local/bin/spyscrap
-# docker run -ti -v /src/data:/spyscrap/data spyscrap  [options]
+
 
 # 17. TheHarvester
 
@@ -238,7 +258,6 @@ sudo rm /mnt/software/theHarvester/theHarvester/lib/core.py
 sudo mv core.py /mnt/software/theHarvester/theHarvester/lib/core.py
 sudo chmod 744 /mnt/software/theHarvester/theHarvester/lib/core.py
 sudo chown root:root /mnt/software/theHarvester/theHarvester/lib/core.py
-# python3 theHarvester.py -h
 
 
 echo "\nProgreso (====================================== - 100%)\n"

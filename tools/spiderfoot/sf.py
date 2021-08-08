@@ -53,7 +53,7 @@ debug_handler.setFormatter(log_format)
 log.addHandler(debug_handler)
 
 error_handler = handlers.TimedRotatingFileHandler(
-    "log/spiderfoot.error.log",
+    "/mnt/software/spiderfoot/log/spiderfoot.error.log",
     when="d",
     interval=1,
     backupCount=30

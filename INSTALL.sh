@@ -20,7 +20,7 @@ cd /mnt/software
 echo "\nProgreso (====                                   - 10%)\n"
 echo "\nInstalando librerías...\n"
 sudo apt-get update
-sudo apt-get install python python-dev python-pip python3 python3-pip build-essential docker.io docker-compose docker-registry testresources default-jdk git -y
+sudo apt-get install python python-dev python-pip-whl python3 python3-pip build-essential docker.io docker-compose docker-registry default-jdk git -y
 sudo git clone https://github.com/c-fsj/orion
 
 # 1. Datasploit
@@ -39,9 +39,9 @@ sudo cp -R /usr/local/lib/python3.8/dist-packages/six* /usr/local/lib/python2.7/
 sudo cp -R /usr/local/lib/python3.8/dist-packages/netaddr* /usr/local/lib/python2.7/dist-packages/
 sudo mv config_sample.py config.py
 cd ..
-cp /mnt/software/orion/tools/datasploit/datasploit.py /mnt/software/datasploit/datasploit.py
-sudo chmod 755 datasploit.py
-sudo chown root:root datasploit.py
+sudo cp /mnt/software/orion/tools/datasploit/datasploit.py /mnt/software/datasploit/datasploit.py
+sudo chmod 755 /mnt/software/datasploit/datasploit.py
+sudo chown root:root /mnt/software/datasploit/datasploit.py
 sudo chown orion:orion /mnt/software/datasploit
 echo '#!/bin/bash' > /mnt/software/datasploit/datasploit && echo 'python /mnt/software/datasploit/datasploit.py' >> /mnt/software/datasploit/datasploit
 sudo cp /mnt/software/datasploit/datasploit /usr/local/bin/datasploit

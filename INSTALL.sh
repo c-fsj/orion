@@ -21,7 +21,7 @@ echo "\nProgreso (====                                   - 10%)\n"
 echo "\nInstalando librerías...\n"
 sudo apt-get update
 sudo apt-get install python python-dev python-pip-whl python3 python3-pip build-essential docker.io docker-compose docker-registry testresources default-jdk git -y
-sudo git clone https://https://github.com/c-fsj/orion
+sudo git clone https://github.com/c-fsj/orion
 
 # 1. Datasploit
 

@@ -21,26 +21,27 @@ echo "\nProgreso (====                                   - 10%)\n"
 echo "\nInstalando librerías...\n"
 sudo apt-get update
 sudo apt-get install python python-dev python-pip-whl python3 python3-pip build-essential docker.io docker-compose docker-registry testresources default-jdk git -y
+sudo git clone https://https://github.com/c-fsj/orion
 
 # 1. Datasploit
 
 echo "\nProgreso (======                                 - 15%)\n"
 echo "\nInstalando DataSploit...\n"
 sudo git clone https://github.com/Datasploit/datasploit
-sudo git clone https://github.com/c-fsj/orion/tree/main/tools/datasploit/requirements.txt
+sudo rm /mnt/software/datasploit/requirements.txt
+sudo cp /mnt/software/orion/tools/datasploit/requirements.txt /mnt/software/datasploit/requirements.txt
+cd datasploit
 sudo chmod 744 requirements.txt
 sudo chown root:root requirements.txt
-sudo rm /mnt/software/datasploit/requirements.txt
-sudo mv requirements.txt /mnt/software/datasploit/requirements.txt
-cd datasploit
 sudo pip install -r requirements.txt
 sudo cp -R /usr/local/lib/python3.8/dist-packages/tld* /usr/local/lib/python2.7/dist-packages/
 sudo cp -R /usr/local/lib/python3.8/dist-packages/six* /usr/local/lib/python2.7/dist-packages/
 sudo cp -R /usr/local/lib/python3.8/dist-packages/netaddr* /usr/local/lib/python2.7/dist-packages/
 sudo mv config_sample.py config.py
 cd ..
-sudo git clone https://github.com/c-fsj/orion/tree/main/tools/datasploit/datasploit.py
-mv datasploit.py /mnt/software/datasploit/datasploit.py
+cp /mnt/software/orion/tools/datasploit/datasploit.py /mnt/software/datasploit/datasploit.py
+sudo chmod 755 datasploit.py
+sudo chown root:root datasploit.py
 sudo chown orion:orion /mnt/software/datasploit
 echo '#!/bin/bash' > /mnt/software/datasploit/datasploit && echo 'python /mnt/software/datasploit/datasploit.py' >> /mnt/software/datasploit/datasploit
 sudo cp /mnt/software/datasploit/datasploit /usr/local/bin/datasploit
@@ -78,7 +79,7 @@ wget -qO- https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 sudo add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/20.04/mssql-server-2019.list)"
 sudo apt-get install wine winetricks mssql-server -y
 winetricks dotnet461 gdiplus fontfix
-sudo git clone https://github.com/c-fsj/orion/tree/main/tools/foca
+cp -R /mnt/software/orion/tools/foca /mnt/software
 sudo /opt/mssql/bin/mssql-conf setup
 sudo cp /mnt/software/foca/bin/foca /usr/local/bin/foca
 sudo chmod 755 /usr/local/bin/foca
@@ -171,7 +172,7 @@ cd reconspider
 sudo python3 setup.py install
 sudo mkdir db
 cd db
-sudo git clone https://github.com/c-fsj/orion/tree/main/tools/reconspider/ip2location-downloader-linux
+cp -R /mnt/software/orion/tools/reconspider/ip2location-downloader-linux /mnt/software/reconspider/db
 perl ip2location-downloader-linux/download.pl
 cd ..\..
 echo '#!/bin/bash' > /mnt/software/reconspider/reconspider && echo 'python3 /mnt/software/reconspider/reconspider.py' >> /mnt/software/reconspider/reconspider
@@ -217,13 +218,10 @@ sudo cp /mnt/software/spiderfoot/spiderfoot/spiderfoot /usr/local/bin/spiderfoot
 sudo chmod 755 /usr/local/bin/spiderfoot
 sudo chown root:root /usr/local/bin/spiderfoot
 export PATH=$PATH:/usr/local/bin/spiderfoot
-sudo git clone https://github.com/c-fsj/orion/tree/main/tools/spiderfoot/sf.py
 sudo rm /mnt/software/spiderfoot/sf.py
-sudo mv sf.py /mnt/software/spiderfoot/sf.py
+sudo cp /mnt/software/orion/tools/spiderfoot/sf.py /mnt/software/spiderfoot/sf.py
 sudo chmod 755 /mnt/software/spiderfoot/sf.py
 sudo chown root:root /mnt/software/spiderfoot/sf.py
-# python3 ./sf.py -l 127.0.0.1:5001
-
 
 # 16. SpyScrap
 
@@ -253,9 +251,8 @@ sudo cp /mnt/software/theHarvester/theharvester /usr/local/bin/theharvester
 sudo chmod 755 /usr/local/bin/theharvester
 sudo chown root:root /usr/local/bin/theharvester
 export PATH=$PATH:/usr/local/bin/theharvester
-sudo git clone https://github.com/c-fsj/orion/tree/main/tools/theHarvester/lib/core.py
 sudo rm /mnt/software/theHarvester/theHarvester/lib/core.py
-sudo mv core.py /mnt/software/theHarvester/theHarvester/lib/core.py
+sudo cp /mnt/software/orion/tools/theHarvester/lib/core.py /mnt/software/theHarvester/theHarvester/lib/core.py
 sudo chmod 744 /mnt/software/theHarvester/theHarvester/lib/core.py
 sudo chown root:root /mnt/software/theHarvester/theHarvester/lib/core.py
 

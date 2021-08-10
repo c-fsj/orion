@@ -92,6 +92,8 @@ sudo export PATH=$PATH:/usr/local/bin/foca
 echo "\nProgreso (==============                         - 35%)\n"
 echo "\nInstalando Infoga...\n"
 sudo git clone https://github.com/m4ll0k/Infoga
+sudo chmod 755 Infoga
+sudo chown orion:orion Infoga
 cd Infoga
 sudo pip3 install setuptools
 sudo python setup.py install

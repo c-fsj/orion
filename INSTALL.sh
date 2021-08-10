@@ -243,6 +243,8 @@ export PATH=$PATH:/usr/local/bin/spyscrap
 echo "\nProgreso (====================================== - 95%)\n"
 echo "\nInstalando TheHarvester...\n"
 sudo git clone https://github.com/laramies/theHarvester
+sudo chmod 755 theHarvester
+sudo chown orion:orion theHarvester
 cd theHarvester
 sudo python3 -m pip install -r requirements/base.txt
 cd ..

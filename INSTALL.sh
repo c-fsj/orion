@@ -162,7 +162,7 @@ export PATH=$PATH:/usr/local/bin/osint-spy
 
 echo "\nProgreso (==========================             - 65%)\n"
 echo "\nInstalando OSRFramework...\n"
-sudo pip3 install osrframework
+pip3 install osrframework
 
 
 # 12. ReconSpider

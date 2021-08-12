@@ -23,41 +23,15 @@ sudo apt-get update
 sudo apt-get install python python-dev python-pip-whl python3 python3-pip build-essential docker.io docker-compose docker-registry default-jdk git -y
 sudo git clone https://github.com/c-fsj/orion
 
-# 1. Datasploit
 
-echo "\nProgreso (======                                 - 15%)\n"
-echo "\nInstalando DataSploit...\n"
-sudo git clone https://github.com/Datasploit/datasploit
-sudo rm /mnt/software/datasploit/requirements.txt
-sudo cp /mnt/software/orion/tools/datasploit/requirements.txt /mnt/software/datasploit/requirements.txt
-cd datasploit
-sudo chmod 744 requirements.txt
-sudo chown root:root requirements.txt
-sudo pip install -r requirements.txt
-sudo cp -R /usr/local/lib/python3.8/dist-packages/tld* /usr/local/lib/python2.7/dist-packages/
-sudo cp -R /usr/local/lib/python3.8/dist-packages/six* /usr/local/lib/python2.7/dist-packages/
-sudo cp -R /usr/local/lib/python3.8/dist-packages/netaddr* /usr/local/lib/python2.7/dist-packages/
-sudo mv config_sample.py config.py
-cd ..
-sudo cp /mnt/software/orion/tools/datasploit/datasploit.py /mnt/software/datasploit/datasploit.py
-sudo chmod 755 /mnt/software/datasploit/datasploit.py
-sudo chown root:root /mnt/software/datasploit/datasploit.py
-sudo chown orion:orion /mnt/software/datasploit
-echo '#!/bin/bash' > /mnt/software/datasploit/datasploit && echo 'python /mnt/software/datasploit/datasploit.py' >> /mnt/software/datasploit/datasploit
-sudo cp /mnt/software/datasploit/datasploit /usr/local/bin/datasploit
-sudo chmod 755 /usr/local/bin/datasploit
-sudo chown root:root /usr/local/bin/datasploit
-export PATH=$PATH:/usr/local/bin/datasploit
-
-
-# 2. DMitry
+# 1. DMitry
 
 echo "\nProgreso (========                               - 20%)\n"
 echo "\nInstalando DMitry...\n"
 sudo apt-get install dmitry -y
 
 
-# 3. ExifTool
+# 2. ExifTool
 
 echo "\nProgreso (==========                             - 25%)\n"
 echo "\nInstalando ExifTool...\n"
@@ -71,7 +45,7 @@ sudo make install
 cd ..
 
 
-# 4. FOCA
+# 3. FOCA
 
 echo "\nProgreso (============                           - 30%)\n"
 echo "\nInstalando FOCA...\n"
@@ -87,7 +61,7 @@ sudo chown root:root /usr/local/bin/foca
 sudo export PATH=$PATH:/usr/local/bin/foca
 
 
-# 5. Infoga
+# 4. Infoga
 
 echo "\nProgreso (==============                         - 35%)\n"
 echo "\nInstalando Infoga...\n"
@@ -106,14 +80,14 @@ export PATH=$PATH:/usr/local/bin/infoga
 # python infoga.py
 
 
-# 6. Instagram Scraper
+# 5. Instagram Scraper
 
 echo "\nProgreso (================                       - 40%)\n"
 echo "\nInstalando Instagram Scraper...\n"
 sudo pip3 install instagram-scraper
 
 
-# 7. Maltego
+# 6. Maltego
 
 echo "\nProgreso (==================                     - 45%)\n"
 echo "\nInstalando Maltego...\n"
@@ -121,14 +95,14 @@ wget https://maltego-downloads.s3.us-east-2.amazonaws.com/linux/Maltego.v4.2.19.
 sudo dpkg -i Maltego.v4.2.19.13940.deb
 
 
-# 8. Maryam
+# 7. Maryam
 
 echo "\nProgreso (====================                   - 50%)\n"
 echo "\nInstalando Maryam...\n"
 sudo pip3 install maryam
 
 
-# 9. Metagoofil
+# 8. Metagoofil
 
 echo "\nProgreso (======================                 - 55%)\n"
 echo "\nInstalando Metagoofil...\n"
@@ -143,7 +117,7 @@ sudo chown root:root /usr/local/bin/metagoofil
 export PATH=$PATH:/usr/local/bin/metagoofil
 
 
-# 10. OSINT-SPY
+# 9. OSINT-SPY
 
 echo "\nProgreso (========================               - 60%)\n"
 echo "\nInstalando OSINT-SPY...\n"
@@ -158,14 +132,14 @@ sudo chown root:root /usr/local/bin/osint-spy
 export PATH=$PATH:/usr/local/bin/osint-spy
 
 
-# 11. OSRFramework
+# 10. OSRFramework
 
 echo "\nProgreso (==========================             - 65%)\n"
 echo "\nInstalando OSRFramework...\n"
 pip3 install osrframework
 
 
-# 12. ReconSpider
+# 11. ReconSpider
 
 echo "\nProgreso (============================           - 70%)\n"
 echo "\nInstalando ReconSpider...\n"
@@ -184,14 +158,14 @@ sudo chown root:root /usr/local/bin/reconspider
 export PATH=$PATH:/usr/local/bin/reconspider
 
 
-# 13. Recon-ng
+# 12. Recon-ng
 
 echo "\nProgreso (==============================         - 75%)\n"
 echo "\nInstalando Recon-ng...\n"
 sudo apt-get install recon-ng -y
 
 
-# 14. Sherlock
+# 13. Sherlock
 
 echo "\nProgreso (================================      - 80%)\n"
 echo "\nInstalando Sherlock...\n"
@@ -207,7 +181,7 @@ export PATH=$PATH:/usr/local/bin/sherlock
 # python3 sherlock
 
 
-# 15. Spiderfoot
+# 14. Spiderfoot
 
 echo "\nProgreso (==================================     - 85%)\n"
 echo "\nInstalando Spiderfoot...\n"
@@ -225,7 +199,7 @@ sudo cp /mnt/software/orion/tools/spiderfoot/sf.py /mnt/software/spiderfoot/sf.p
 sudo chmod 755 /mnt/software/spiderfoot/sf.py
 sudo chown root:root /mnt/software/spiderfoot/sf.py
 
-# 16. SpyScrap
+# 15. SpyScrap
 
 echo "\nProgreso (====================================   - 90%)\n"
 echo "\nInstalando SpyScrap...\n"
@@ -240,7 +214,7 @@ sudo chown root:root /usr/local/bin/spyscrap
 export PATH=$PATH:/usr/local/bin/spyscrap
 
 
-# 17. TheHarvester
+# 16. TheHarvester
 
 echo "\nProgreso (====================================== - 95%)\n"
 echo "\nInstalando TheHarvester...\n"
@@ -260,6 +234,11 @@ sudo cp /mnt/software/orion/tools/theHarvester/lib/core.py /mnt/software/theHarv
 sudo chmod 744 /mnt/software/theHarvester/theHarvester/lib/core.py
 sudo chown root:root /mnt/software/theHarvester/theHarvester/lib/core.py
 
+# 17. Tor Browser
+
+sudo add-apt-repository ppa:micahflee/ppa
+sudo apt update
+sudo apt install torbrowser-launcher
 
 echo "\nProgreso (====================================== - 100%)\n"
 echo "\n¡Hemos terminado! ¡Disfruta de ORION!"

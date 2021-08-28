@@ -1,2 +1,1 @@
-# ORION
-Sistema operativo basado en Ubuntu enfocado a la realización de tareas relacionadas con OSINT.
+ORION es un sistema operativo orientado a la investigación OSINT. Desarrollado por Carlos F. San Juan a partir de Ubuntu 20.04.

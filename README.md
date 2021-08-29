@@ -47,6 +47,4 @@ ORION es un sistema operativo orientado a la investigación OSINT. Desarrollado 
 
 ## DESCARGA:
 
-Se encuentra disponible para su descarga en formato OVA en el siguiente enlace:
-
-  MEDIAFIRE: https://www.mediafire.com/file/x4kez0lxgu07ufh/ORION.zip/file (9 GB)
+Se encuentra disponible para su descarga en formato OVA en el siguiente enlace de [Mediafire](https://www.mediafire.com/file/x4kez0lxgu07ufh/ORION.zip/file).

@@ -1,9 +1,9 @@
+# ORION
+
 ORION es un sistema operativo orientado a la investigación OSINT. Desarrollado por Carlos F. San Juan a partir de Ubuntu 20.04.
 
 
-
-
-HERRAMIENTAS:
+## HERRAMIENTAS:
 
   - Dmitry
   - Exiftool
@@ -28,24 +28,24 @@ HERRAMIENTAS:
 
 
 
-REQUISITOS:
+## REQUISITOS:
 
- - Mínimos:
+### Mínimos:
       
-      > RAM: 4 GB
-      > Almacenamiento: 30 GB
-      > 1 CPU virtual
+      * RAM: 4 GB
+      * Almacenamiento: 30 GB
+      * CPUs virtuales: 1
 
- - Recomendados:
+### Recomendados:
  
-      > RAM: 6 GB
-      > Almacenamiento: 60 GB
-      > 2 CPUs virtuales
+      * RAM: 6 GB
+      * Almacenamiento: 60 GB
+      * CPUs virtuales: 2
 
 
 
 
-DESCARGA:
+## DESCARGA:
 
 Se encuentra disponible para su descarga en formato OVA en el siguiente enlace:
 
